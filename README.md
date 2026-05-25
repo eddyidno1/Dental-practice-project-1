@@ -21,12 +21,20 @@ No AI, no SMS, no automation. Just visibility, ownership, and accountability.
 
 ```bash
 npm install
-npx prisma migrate dev --name init
-npx prisma db seed
+npm run db:migrate -- --name init
+npm run db:seed
 npm run dev
 ```
 
 Then open <http://localhost:3000>.
+
+`.env` is gitignored. The `predev` / `prebuild` / `prestart` / `postinstall`
+scripts auto-create it from `.env.example` if it's missing. If you ever see
+`Environment variable not found: DATABASE_URL`, just run:
+
+```bash
+cp .env.example .env
+```
 
 ## Data model
 
